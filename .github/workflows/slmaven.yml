@@ -35,4 +35,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Parse Results
       run: |
-        curl -X GET https://www.shiftleft.io/api/v4/orgs/${{SHIFTLEFT_ORG_ID}}/apps/Vulnado-GitHubAction/findings -H "Accept: application/json" -H "Authorization: Bearer ${{SHIFTLEFT_API_TOKEN}}" | jq -c '.response.findings[] | {id: .id, title: .title}'
+        curl -X GET https://www.shiftleft.io/api/v4/orgs/${{secrets.SHIFTLEFT_ORG_ID}}/apps/Vulnado-GitHubAction/findings -H "Accept: application/json" -H "Authorization: Bearer ${{secrets.SHIFTLEFT_API_TOKEN}}" | jq -c '.response.findings[] | {id: .id, title: .title}'
